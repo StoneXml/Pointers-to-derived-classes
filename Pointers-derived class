@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+class base
+{
+ int bvar;
+public:
+ virtual void in()
+ {
+ cout << "Enter the value of variable of base class: ";
+ cin >> bvar;
+ }
+ virtual void out()
+ {
+ cout << "Base class variable bvar: " << bvar << "\n\n";
+ }
+};
+class derived : public base
+{
+ int dvar;
+public:
+ void in()
+ {
+ cout << "Enter the value of variable of derived class: ";
+ cin >> dvar;
+ }
+ void out()
+ {
+ cout << "Derived class variable dvar: " << dvar << "\n\n";
+ }
+};
+int main()
+{
+ system("cls");
+ base bobj;
+ base *bptr = &bobj;
+ bptr->in();
+ bptr->out();
+ derived dobj;
+ bptr = &dobj;
+ bptr->in();
+ bptr->out();
+ return 0;
+}
